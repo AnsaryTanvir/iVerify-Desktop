@@ -1,0 +1,185 @@
+﻿<Window x:Class="iVerify.MainWindow"
+        xmlns:xrpb="http://XamlRadialProgressBar/DotNet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:iVerify"
+        mc:Ignorable="d"
+        Height="280" 
+        Width="180"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="#384047">
+
+
+    <Window.Resources>
+
+        <!-- Style for TextBox -->
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#333333"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" CornerRadius="10">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Style for PasswordBox -->
+        <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#333333"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" CornerRadius="10">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="LoginButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="10">
+                            <!-- Add CornerRadius here -->
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#71818e"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </Window.Resources>
+
+    <Grid>
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Grid Grid.Row="0">
+
+   
+
+            <TextBlock
+                FontSize="18"
+                FontWeight="Bold"
+         
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Foreground="White"
+                Text="𝓲𝓥𝓮𝓻𝓲𝓯𝔂"
+                />
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <StackPanel
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Width="130"
+                >
+
+                <TextBlock
+                    Text="Username"
+                    Foreground="White"
+                    FontSize="12"
+                    Margin="0 0 0 3"
+                    />
+                
+                <TextBox
+                    x:Name="UsernameTextBox"
+                    Padding="2"
+                    Height="25"
+                    Style="{StaticResource TextBoxStyle}"
+                    Margin="0 0 0 5"
+                    BorderThickness="0"
+                    />
+
+                <TextBlock
+                    Text="Password"
+                    Foreground="White"
+                    FontSize="12"
+                    Margin="0 0 0 3"
+                    />
+                <PasswordBox
+                    x:Name="PasswordTextBox"
+                    Padding="2"
+                    Height="25"
+                    Style="{StaticResource PasswordBoxStyle}"
+                     
+                     />
+
+                <Button
+                    x:Name="LoginButton"
+                    Click="LoginButton_Click"
+                    Style="{StaticResource LoginButtonStyle }"
+                    BorderThickness="0"
+                    Foreground="Wheat"
+                    Background="#66747f"
+                    HorizontalAlignment="Center"
+                    Margin="0 10 0 0"
+                    Content="𝕃𝕠𝕘𝕚𝕟"
+                    Width="100"
+                    Height="30"
+                    FontSize="18"
+
+                    />
+
+
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+
+            <TextBlock
+                Visibility="Hidden"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Foreground="White"
+                x:Name="logTextBlock"
+                Text="Logging in..."
+                />
+
+        </Grid>
+
+
+
+    </Grid>
+
+
+</Window>
